@@ -15,7 +15,7 @@ import '../styles/Navbar.css';
 import '../styles/RequestForm.css';
 import '../styles/SpeakerProfile.css';
 import '../styles/Speakers.css';
-import Head from 'next/head';
+// import Head from 'next/head';
 
 export async function fetchSpeakers() {
   // const db = getFirestore();

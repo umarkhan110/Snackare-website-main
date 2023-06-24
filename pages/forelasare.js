@@ -3,24 +3,24 @@ import Card from '../components/Card';
 import { useRouter } from 'next/router';
 import { fetchSpeakers } from './_app';
 
-export async function getServerSideProps(context) {
-    const speakers = await fetchSpeakers();
-    const category = context.query.category || null;
+// export async function getServerSideProps(context) {
+//     const speakers = await fetchSpeakers();
+//     const category = context.query.category || null;
 
-    console.log('Speakers fetched in getServerSideProps:', speakers);
+//     console.log('Speakers fetched in getServerSideProps:', speakers);
 
-    return {
-        props: {
-            speakers,
-            category,
-        },
-    };
-}
+//     return {
+//         props: {
+//             speakers,
+//             category,
+//         },
+//     };
+// }
 
 
 
-export default function Forelasare({ speakers, speakersHeader, isFlipped }) {
-    console.log('Speakers in component:', speakers);
+export default function Forelasare({  speakersHeader, isFlipped }) {
+    // console.log('Speakers in component:', speakers);
     const router = useRouter();
     const [search, setSearch] = useState("")
 
@@ -60,58 +60,58 @@ export default function Forelasare({ speakers, speakersHeader, isFlipped }) {
     }
 
 
-    const filteredSpeakers = speakers.filter((speaker) => {
-        const activeRoles = speaker.roles ?
-            Object.entries(speaker.roles).filter(([role, hasRole]) => hasRole).map(([role, hasRole]) => role) : []
+    // const filteredSpeakers = speakers.filter((speaker) => {
+    //     const activeRoles = speaker.roles ?
+    //         Object.entries(speaker.roles).filter(([role, hasRole]) => hasRole).map(([role, hasRole]) => role) : []
 
-        const isMatchCategory = !category || activeRoles.includes(category)
+    //     const isMatchCategory = !category || activeRoles.includes(category)
 
-        const searchLowerCase = search.toLowerCase();
+    //     const searchLowerCase = search.toLowerCase();
 
-        const isMatchSearch = speaker.name.toLowerCase().includes(searchLowerCase) ||
-            (speaker.topics && speaker.topics.some(topic => topic.toLowerCase().includes(searchLowerCase))) ||
-            (speaker.roles && Object.entries(speaker.roles).some(([role, hasRole]) => hasRole && translateRoleToSwedish(role).toLowerCase().includes(searchLowerCase)))
+    //     const isMatchSearch = speaker.name.toLowerCase().includes(searchLowerCase) ||
+    //         (speaker.topics && speaker.topics.some(topic => topic.toLowerCase().includes(searchLowerCase))) ||
+    //         (speaker.roles && Object.entries(speaker.roles).some(([role, hasRole]) => hasRole && translateRoleToSwedish(role).toLowerCase().includes(searchLowerCase)))
 
-        return isMatchCategory && isMatchSearch
-    })
+    //     return isMatchCategory && isMatchSearch
+    // })
 
-    const sortedSpeakers = filteredSpeakers.sort((a, b) =>
-        a.name.localeCompare(b.name)
-    );
+    // const sortedSpeakers = filteredSpeakers.sort((a, b) =>
+    //     a.name.localeCompare(b.name)
+    // );
 
-    function renderSortedCardElements() {
-        let currentLetter = '';
-        const elements = [];
+    // function renderSortedCardElements() {
+    //     let currentLetter = '';
+    //     const elements = [];
 
-        sortedSpeakers.forEach((speaker) => {
-            const firstLetter = speaker.name[0].toUpperCase();
+    //     sortedSpeakers.forEach((speaker) => {
+    //         const firstLetter = speaker.name[0].toUpperCase();
 
-            if (firstLetter !== currentLetter) {
-                currentLetter = firstLetter;
-                elements.push(
-                    <div className='letter-section' key={`letter-${currentLetter}`}>
-                        <h1 className='letter'>{currentLetter}</h1>
-                    </div>
-                );
-            }
+    //         if (firstLetter !== currentLetter) {
+    //             currentLetter = firstLetter;
+    //             elements.push(
+    //                 <div className='letter-section' key={`letter-${currentLetter}`}>
+    //                     <h1 className='letter'>{currentLetter}</h1>
+    //                 </div>
+    //             );
+    //         }
 
-            if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-                elements.push(
-                    <div>
-                        <Card speaker={speaker} />
-                    </div>
-                )
-            } else {
-                elements.push(
-                    <div className='hide-on-mobile' key={speaker.id} onClick={() => router.push(`/forelasare/${generateSlug(speaker.name)}`)}>
-                        <Card speaker={speaker} />
-                    </div>
-                )
-            }
-        });
+    //         if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+    //             elements.push(
+    //                 <div>
+    //                     <Card speaker={speaker} />
+    //                 </div>
+    //             )
+    //         } else {
+    //             elements.push(
+    //                 <div className='hide-on-mobile' key={speaker.id} onClick={() => router.push(`/forelasare/${generateSlug(speaker.name)}`)}>
+    //                     <Card speaker={speaker} />
+    //                 </div>
+    //             )
+    //         }
+    //     });
 
-        return elements;
-    }
+    //     return elements;
+    // }
 
 
     return (
@@ -129,9 +129,9 @@ export default function Forelasare({ speakers, speakersHeader, isFlipped }) {
                     <h2 className='speakers-search-header'>Sök efter: {search}</h2>
                 </div>
             </div>
-            <div className="card-section">
+            {/* <div className="card-section">
                 {renderSortedCardElements()}
-            </div>
+            </div> */}
         </div >
     );
 }
