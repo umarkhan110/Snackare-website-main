@@ -18,7 +18,7 @@
 
 .speakerProfile-content {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 30px;
 }
 
@@ -126,7 +126,7 @@
 
   .speakerProfile-name-bookButton-container {
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 20px;
   }
 

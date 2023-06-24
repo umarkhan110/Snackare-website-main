@@ -46,7 +46,7 @@
 
 .header-search-container {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: calc(10vw + 5rem);
 }
 

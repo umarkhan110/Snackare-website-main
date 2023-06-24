@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   const paths = speakers.map((currentSpeaker) => {
     if (!currentSpeaker.name) {
       console.error('Undefined speaker name for', currentSpeaker);
-      return;
+     
     }
     return {
       params: { slug: generateSlug(currentSpeaker.name) },
@@ -75,13 +75,13 @@ export default function SpeakerProfilePage({ currentSpeaker }) {
     </div>
   )) : [];
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+  // const sliderSettings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1
+  // };
 
 
   const exampleLecturesElements = currentSpeaker.exampleLectures.map(exampleLecture => (

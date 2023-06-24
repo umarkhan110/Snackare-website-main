@@ -26,7 +26,7 @@ const HomeCards = () => {
                 {cards.map((card, index) => (
                         <div key={index} className="home-card" data-aos='fade-down'>
                             <h4 className='card-header'>{card.header}</h4>
-                            <img className='figure' src={card.icon} />
+                            <img className='figure' src={card.icon} alt={card.header}/>
                             <p>{card.text}</p>
                         </div>
                 ))}

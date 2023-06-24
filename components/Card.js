@@ -1,5 +1,4 @@
 import { React, useState} from 'react'
-import { NavigateBefore } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 
 function translateRole(role) {
@@ -29,7 +28,7 @@ function generateSlug(name) {
 export default function Card({ speaker }) {
   const router = useRouter(); 
   const [isFlipped, setIsFlipped] = useState(false);
-  const [clickCount, setClickCount] = useState(0)
+  // const [clickCount, setClickCount] = useState(0)
 
   const handleCardClick = () => {
     if (window.innerWidth <= 768) {

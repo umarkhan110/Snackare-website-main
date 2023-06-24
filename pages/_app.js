@@ -18,7 +18,7 @@ import '../styles/Speakers.css';
 import Head from 'next/head';
 
 export async function fetchSpeakers() {
-  const db = getFirestore();
+  // const db = getFirestore();
   const speakersCollection = collection(db, 'speakers');
   const speakerSnapshot = await getDocs(speakersCollection);
   const speakerList = speakerSnapshot.docs.map(doc => doc.data());

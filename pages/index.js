@@ -5,7 +5,6 @@ import 'aos/dist/aos.css';
 import HomeStartImage from '../components/HomeStartImage'
 import HomeClients from '../components/HomeClients'
 import HomeCards from '../components/HomeCards'
-import HomeSlider from '../components/HomeSlider'
 
 
 
